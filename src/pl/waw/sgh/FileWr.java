@@ -16,7 +16,8 @@ public class FileWr {
         File file = new File(FILE_LOC);
         // file, append existing file or not
         FileWriter fw = new FileWriter(file, false);
-        BufferedWriter bw = new BufferedWriter(fw);
+        BufferedWriter bw = new BufferedWriter(fw, 688);
+        //bw.
         bw.write("Hello");
         bw.newLine();
         bw.write("2nd line...\n3rd line\n4th line\tAfter tab");
