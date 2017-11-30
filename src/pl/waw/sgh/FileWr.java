@@ -1,12 +1,9 @@
 package pl.waw.sgh;
 
-import com.oracle.webservices.internal.api.message.PropertySet;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Properties;
 
 public class FileWr {
 

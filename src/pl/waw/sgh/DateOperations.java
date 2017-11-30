@@ -22,9 +22,9 @@ public class DateOperations {
         Date outDate = null;
         while (!success) {
             try {
-                String inDate = null;
-                //String inDate = JOptionPane.showInputDialog(null,
-                 //       "Please provide a date:");
+                //String inDate = null;
+                String inDate = JOptionPane.showInputDialog(null,
+                       "Please provide a date:");
                 outDate = sdf2.parse(inDate);
 
                 // Add 10 days to the date provided
