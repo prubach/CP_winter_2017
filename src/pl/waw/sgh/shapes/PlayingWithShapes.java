@@ -21,15 +21,20 @@ public class PlayingWithShapes {
         c1.setParams(5,0);
         System.out.println(c1.calcSurface());
 
-        Shape[] shapes = new Shape[3];
+        Shape[] shapes = new Shape[4];
         shapes[0] = r1;
         shapes[1] = c1;
         shapes[2] = new Circle();
         shapes[2].setParams(2,0);
+        shapes[3] = new NewRectangle();
 
         for (Shape s : shapes) {
             System.out.println("Shape: " + s);
             System.out.println("Surface: " + s.calcSurface());
+            if (s instanceof Rectangle) {
+               // System.out.println(((Circle)s).calcSurface());
+                System.out.println("Perimeter: " + ((Rectangle)s).calcPerimeter()  );
+            }
         }
 
 
