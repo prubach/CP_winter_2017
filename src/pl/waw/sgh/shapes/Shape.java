@@ -1,6 +1,6 @@
 package pl.waw.sgh.shapes;
 
-public class Shape {
+public abstract class Shape {
 
     double parA;
     double parB;
@@ -9,6 +9,8 @@ public class Shape {
         this.parA = parA;
         this.parB = parB;
     }
+
+    public abstract double calcSurface();
 
     @Override
     public String toString() {

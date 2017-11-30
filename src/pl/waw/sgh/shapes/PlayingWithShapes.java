@@ -18,5 +18,25 @@ public class PlayingWithShapes {
         System.out.println(r1);
         System.out.println(c1);
 
+        c1.setParams(5,0);
+        System.out.println(c1.calcSurface());
+
+        Shape[] shapes = new Shape[3];
+        shapes[0] = r1;
+        shapes[1] = c1;
+        shapes[2] = new Circle();
+        shapes[2].setParams(2,0);
+
+        for (Shape s : shapes) {
+            System.out.println("Shape: " + s);
+            System.out.println("Surface: " + s.calcSurface());
+        }
+
+
+/*
+        Shape s1 = new Shape();
+        System.out.println(s1);
+*/
+
     }
 }
