@@ -1,6 +1,6 @@
 package pl.waw.sgh.shapes;
 
-public abstract class Shape {
+public abstract class Shape implements Comparable<Shape> {
 
     double parA;
     double parB;
@@ -49,6 +49,19 @@ public abstract class Shape {
 
         if (Double.compare(shape.parA, parA) != 0) return false;
         return Double.compare(shape.parB, parB) == 0;
+    }
+
+    @Override
+    public int compareTo(Shape otherShape) {
+        // positive (1) number - if this is greater that otherShape
+        // 0 - if it is the same as otherShape
+        // negative (-1) number - if this is less than otherShape
+
+        /*if (this.calcSurface()>otherShape.calcSurface()) return 1;
+        if (this.calcSurface()==otherShape.calcSurface()) return 0;
+        else return -1;
+        */
+        return Double.compare(this.calcSurface(),otherShape.calcSurface());
     }
 
     /*//@Override

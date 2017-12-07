@@ -5,9 +5,9 @@ public class Rectangle extends Shape {
 
     public Rectangle(Params params) {
         super(params);
-        int a = 4;
+       // int a = 4;
 
-        this.parA = 35353;
+        //this.parA = 35353;
     }
 
 //    double parA;
