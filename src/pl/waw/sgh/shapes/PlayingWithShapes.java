@@ -4,9 +4,23 @@ public class PlayingWithShapes {
 
     public static void main(String[] args) {
         Rectangle r1 = new Rectangle();
-        r1.setParams(4,6);
+        //r1.setParams(4,6);
+        Params params = new Params(4,6);
+        Params params1 = new Params();
+
+        ParamsSimple parSim = new ParamsSimple();
+        parSim.parA = 4;
+        parSim.parB = 6;
+        r1.setParams(parSim);
+
+
+        //params.parA = 54;
+        //params.setParA(54);
+
+        r1.setParams(params);
         Rectangle r2 = new Rectangle();
-        r2.setParams(4,6);
+        //r2.setParams(new Params(4, 6));
+        r2.setParams(params);
 
         if (r1.equals(r2))
             System.out.println("r1 equal to r2");
@@ -25,7 +39,7 @@ public class PlayingWithShapes {
         shapes[0] = r1;
         shapes[1] = c1;
         shapes[2] = new Circle();
-        shapes[2].setParams(2,0);
+        shapes[2].setParams(2);
         shapes[3] = new NewRectangle();
 
         for (Shape s : shapes) {

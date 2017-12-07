@@ -5,9 +5,29 @@ public abstract class Shape {
     double parA;
     double parB;
 
+    public Shape(Params params) {
+        setParams(params);
+        /*this.parA = params.getParA();
+        this.parB = params.getParB();*/
+    }
+
     public void setParams(double parA, double parB) {
         this.parA = parA;
         this.parB = parB;
+    }
+
+    public void setParams(double parA) {
+        this.parA = parA;
+    }
+
+    public void setParams(Params params) {
+        this.parA = params.getParA();
+        this.parB = params.getParB();
+    }
+
+    public void setParams(ParamsSimple paramsSimple) {
+        this.parA = paramsSimple.parA;
+        this.parB = paramsSimple.parB;
     }
 
     public abstract double calcSurface();
