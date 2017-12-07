@@ -1,5 +1,9 @@
 package pl.waw.sgh.shapes;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class CompareShapes {
 
     public static void main(String[] args) {
@@ -12,6 +16,16 @@ public class CompareShapes {
         System.out.println("C1: " + c1.calcSurface());
         System.out.println("C2: " + c2.calcSurface());
         System.out.println(r1.compareTo(c2));
+
+        List<Shape> shapeList = new ArrayList<>();
+        shapeList.add(r1);
+        shapeList.add(c1);
+        shapeList.add(c2);
+
+        Collections.sort(shapeList);
+
+        System.out.println(shapeList);
+
 
     }
 }

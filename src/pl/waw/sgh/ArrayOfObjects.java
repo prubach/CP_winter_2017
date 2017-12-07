@@ -5,7 +5,7 @@ import pl.waw.sgh.shapes.Rectangle;
 
 import java.util.Collection;
 
-public class Lists {
+public class ArrayOfObjects {
 
     public static void main(String[] args) {
         Object[] myObjs = new Object[3];
@@ -17,10 +17,5 @@ public class Lists {
             //System.out.println("Object: " + myObj.toString());
             System.out.println("Object: " + myObj);
         }
-
-        //Collection
-
-
-
     }
 }
