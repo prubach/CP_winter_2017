@@ -9,6 +9,36 @@ public class Bank {
 
     private List<Account> accountList = new ArrayList<>();
 
+    private Integer lastCustomerID = 0;
+
+    private Integer lastAccountID = 0;
+
+    public Customer createCustomer(String firstName,
+                                   String lastName, String email) {
+        Customer customer =
+                new Customer(lastCustomerID++,firstName,lastName,email);
+        customerList.add(customer);
+        return customer;
+    }
+
+    private Account createAccount(Customer customer, boolean isSavings) {
+        Account acc =
+                (isSavings ?
+                        new SavingsAccount(lastAccountID++, 0d, customer)
+                        :
+                        new DebitAccount(lastAccountID++,0d,customer));
+        accountList.add(acc);
+        return acc;
+    }
+
+    public Account createSavingsAccount(Customer customer) {
+        return createAccount(customer, true);
+    }
+
+    public Account createDebitAccount(Customer customer) {
+        return createAccount(customer, false);
+    }
+
     public List<Customer> getCustomerList() {
         return customerList;
     }
@@ -28,8 +58,8 @@ public class Bank {
     @Override
     public String toString() {
         return "Bank{" +
-                "customerList=" + customerList +
-                ", accountList=" + accountList +
+                "custs=\n" + customerList +
+                ",\n accs=\n" + accountList +
                 '}';
     }
 }
