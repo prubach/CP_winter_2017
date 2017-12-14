@@ -13,6 +13,11 @@ public class Bank {
 
     private Integer lastAccountID = 0;
 
+    //TODO
+    public void transfer(Integer fromAccID, Integer toAccID, double amount) {
+
+    }
+
     public Customer createCustomer(String firstName,
                                    String lastName, String email) {
         Customer customer =
