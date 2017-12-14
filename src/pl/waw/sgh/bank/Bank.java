@@ -13,9 +13,19 @@ public class Bank {
 
     private Integer lastAccountID = 0;
 
+    private Account findAccountByID(Integer id) {
+        for (Account tempAcc : accountList) {
+            if (tempAcc.getAccountID().equals(id)) return tempAcc;
+        }
+        return null;
+    }
+
     //TODO
     public void transfer(Integer fromAccID, Integer toAccID, double amount) {
-
+        Account fromAccount = findAccountByID(fromAccID);
+        Account toAccount =findAccountByID(toAccID);
+        fromAccount.charge(amount);
+        toAccount.deposit(amount);
     }
 
     public Customer createCustomer(String firstName,

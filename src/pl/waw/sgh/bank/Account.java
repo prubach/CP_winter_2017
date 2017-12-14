@@ -20,6 +20,7 @@ public abstract class Account {
         this.accountID = accountID;
         this.balance = new BigDecimal(balance);
         this.customer = customer;
+        this.balance = this.balance.setScale(2);
     }
 
     public void deposit(double amount) {

@@ -21,6 +21,7 @@ public class PlayWithBank {
         acc1.deposit(252);
         acc2.deposit(300);
         acc2.charge(100);
+        bank.transfer(1,0,80);
         System.out.println(bank);
 
 
