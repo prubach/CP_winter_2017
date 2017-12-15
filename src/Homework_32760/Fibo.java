@@ -15,53 +15,72 @@ public class Fibo {
     }
 
     public static void main(String[] args) {
-        System.out.println("How many Fibonacci numbers would you like to calculate?");
-        System.out.print("Please put the amount right here -->>> ");
-        Scanner sc = new Scanner(System.in);
-        int k = sc.nextInt();
-        System.out.println("You have entered " + k + ". You want to see " +k+ " numbers. Here goes! \n");
+        if (args.length>0) {
+            String arg1 = args[0];
 
-        System.out.println("Um, wait.. Last update so many cool features have been added! I mean.. just look!");
-        System.out.println("Please choose which loop you would like to use for our calculations.");
-        System.out.println("Availible choices are: for, while and do_while. Choose wisely.\n");
-        System.out.print("Choice entry -->>>");
-        Scanner menu = new Scanner(System.in);
-        String wyborowa = menu.nextLine();
-        System.out.println("\r\n");
-        go_to:
-        switch (wyborowa) {
-
-            case "for":
-                for (i = 0; i < k; i++) {
-                    series();
-                    System.out.println("\nThe program was extremly successful! Remember, there is no spoon.");
-                    break;//TODO In this loop I'm getting an extra spoon text on start, why? :/
-
-                }
-
-            case "while":
-                while (i < k) {
-                    series();
-                    i++;
-                }
-                System.out.println("\nThe program was extremly successful! Remember, there is no spoon.");
-                break;
-
-            case "do_while":
-                do {
-                    series();
-                    i++;
-                }
-                while (i < k);
-                System.out.println("\nThe program was extremly successful! Remember, there is no spoon.");
-                break;
-
-            default:
-                System.out.println("BUONT ZKUADNI! (i.e. Syntax Error!\n");
-                System.out.println("Sadly author couldn't figure out how to use break as goto, therefore program will exit :( \n)");
-                break go_to;
+            int n = Integer.parseInt(arg1);
+            String nS = Integer.valueOf(n).toString();
         }
 
+
+        boolean exit = false; //added
+
+        while (!exit) { //added
+            System.out.println("How many Fibonacci numbers would you like to calculate?");
+            System.out.print("Please put the amount right here -->>> ");
+            Scanner sc = new Scanner(System.in);
+            int k = sc.nextInt();
+            if (k==-1) {
+                exit = true;
+                continue;
+            }
+            System.out.println("You have entered " + k + ". You want to see " + k + " numbers. Here goes! \n");
+
+
+
+            System.out.println("Um, wait.. Last update so many cool features have been added! I mean.. just look!");
+            System.out.println("Please choose which loop you would like to use for our calculations.");
+            System.out.println("Availible choices are: for, while and do_while. Choose wisely.\n");
+            System.out.print("Choice entry -->>>");
+            Scanner menu = new Scanner(System.in);
+            String wyborowa = menu.nextLine();
+            System.out.println("\r\n");
+            go:
+
+            switch (wyborowa) {
+
+                case "for":
+                    for (i = 0; i < k; i++) {
+                        series();
+                    }
+                    System.out.println("\nThe program was extremly successful! Remember, there is no spoon.");
+                    break;
+                case "while":
+                    while (i < k) {
+                        series();
+                        i++;
+                    }
+                    System.out.println("\nThe program was extremly successful! Remember, there is no spoon.");
+                    break;
+
+                case "do_while":
+                    do {
+                        series();
+                        i++;
+                    }
+                    while (i < k);
+                    System.out.println("\nThe program was extremly successful! Remember, there is no spoon.");
+                    break;
+
+                case "exit":
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("BUONT ZKUADNI! (i.e. Syntax Error!)\n");
+                    System.out.println("Sadly author couldn't figure out how to use break as goto, therefore program will exit :( \n");
+                    break go;
+            }
+        }
     }
 }
 
