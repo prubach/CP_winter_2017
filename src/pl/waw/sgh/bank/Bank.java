@@ -1,5 +1,7 @@
 package pl.waw.sgh.bank;
 
+import pl.waw.sgh.bank.exceptions.BankException;
+import pl.waw.sgh.bank.exceptions.InvalidSumException;
 import pl.waw.sgh.bank.exceptions.NonExistantAccountException;
 
 import java.util.ArrayList;
@@ -25,7 +27,8 @@ public class Bank {
 
     //TODO
     public void transfer(Integer fromAccID, Integer toAccID, double amount)
-            throws NonExistantAccountException {
+//            throws NonExistantAccountException, InvalidSumException {
+            throws BankException {
         Account fromAccount = findAccountByID(fromAccID);
         Account toAccount = findAccountByID(toAccID);
         fromAccount.charge(amount);
