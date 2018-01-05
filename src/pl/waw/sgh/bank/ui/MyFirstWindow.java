@@ -1,7 +1,5 @@
 package pl.waw.sgh.bank.ui;
 
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +11,7 @@ public class MyFirstWindow {
 
         try {
             // Set cross-platform Java L&F (also called "Metal")
-            UIManager.setLookAndFeel(WindowsLookAndFeel.class.getCanonicalName());
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
         }
         catch (UnsupportedLookAndFeelException e) {
             // handle exception

@@ -1,6 +1,7 @@
 package pl.waw.sgh.bank.ui;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class BankingApp {
     private JTabbedPane tabbedPane1;
@@ -9,7 +10,6 @@ public class BankingApp {
     public JTabbedPane getTabbedPane1() {
         return tabbedPane1;
     }
-
 
     public void setTabbedPane1(JTabbedPane tabbedPane1) {
         this.tabbedPane1 = tabbedPane1;
@@ -71,12 +71,12 @@ public class BankingApp {
         this.toAccLabel = toAccLabel;
     }
 
-    public JLabel getAmountLabel() {
-        return amountLabel;
+    public JLabel getAmountLbl() {
+        return amountLbl;
     }
 
-    public void setAmountLabel(JLabel amountLabel) {
-        this.amountLabel = amountLabel;
+    public void setAmountLbl(JLabel amountLbl) {
+        this.amountLbl = amountLbl;
     }
 
     private JTextField fromAccField;
@@ -85,9 +85,11 @@ public class BankingApp {
     private JButton goButton;
     private JLabel fromAccLabel;
     private JLabel toAccLabel;
-    private JLabel amountLabel;
+    private JLabel amountLbl;
+    private JPanel transferPanel;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
+
 }
