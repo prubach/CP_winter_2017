@@ -5,6 +5,7 @@ import pl.waw.sgh.bank.Account;
 
 import javax.swing.table.DefaultTableModel;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,8 @@ import java.util.List;
 public class AccountsTableDataModel extends DefaultTableModel {
 
     static String[] cols = {"ID", "Type", "Currency", "Balance"};
+
+    List<Account> dataList = new ArrayList<>();
 
     public AccountsTableDataModel(List<Account> accountList) {
         super(cols, 0);
@@ -26,17 +29,17 @@ public class AccountsTableDataModel extends DefaultTableModel {
     }
 
     public void addRow(Account acc) {
-        dataVector.add(acc);
+        dataList.add(acc);
         fireTableDataChanged();
     }
 
     public void removeAllRows() {
-        dataVector.clear();
+        dataList.clear();
         fireTableDataChanged();
     }
 
     public void removeRow(int rowIndex) {
-        dataVector.remove(rowIndex);
+        dataList.remove(rowIndex);
         fireTableDataChanged();
     }
 
@@ -58,7 +61,7 @@ public class AccountsTableDataModel extends DefaultTableModel {
 
     @Override
     public Object getValueAt(int rowInd, int colInd) {
-        Account acc = (Account) dataVector.get(rowInd);
+        Account acc = (Account) dataList.get(rowInd);
         switch (colInd) {
             case 0:
                 return acc.getAccountID();
@@ -76,7 +79,7 @@ public class AccountsTableDataModel extends DefaultTableModel {
 
     @Override
     public void setValueAt(Object newVal, int row, int column) {
-        Account account = (Account) dataVector.get(row);
+        Account account = (Account) dataList.get(row);
         switch (column) {
             case 0:
                 return;
