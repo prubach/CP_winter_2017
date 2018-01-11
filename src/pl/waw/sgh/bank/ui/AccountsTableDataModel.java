@@ -47,7 +47,7 @@ public class AccountsTableDataModel extends DefaultTableModel {
     public Class getColumnClass(int colIndex) {
         switch (colIndex) {
             case 0:
-                return Long.class;
+                return Integer.class;
             case 1:
                 return String.class;
             case 2:

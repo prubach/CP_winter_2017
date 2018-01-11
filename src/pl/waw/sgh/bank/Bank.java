@@ -17,6 +17,21 @@ public class Bank {
 
     private Integer lastAccountID = 0;
 
+    public List<Account> findAccountsByCustomer(Customer cust) throws BankException {
+        List<Account> customerAccounts = new ArrayList<>();
+        for (Account account: accountList) {
+            if (account.getCustomer().equals(cust)) customerAccounts.add(account);
+        }
+        return customerAccounts;
+    }
+
+    public Customer findCustomerByID(Integer id) throws BankException {
+        for (Customer customer : customerList) {
+            if (id.equals(customer.getCustomerID())) return customer;
+        }
+        throw new BankException("Customer with ID: " + id + " not found");
+    }
+
     private Account findAccountByID(Integer id) throws NonExistantAccountException {
         for (Account tempAcc : accountList) {
             if (tempAcc.getAccountID().equals(id)) return tempAcc;

@@ -2,6 +2,7 @@ package pl.waw.sgh.bank.ui;
 
 import pl.waw.sgh.bank.Bank;
 import pl.waw.sgh.bank.Customer;
+import pl.waw.sgh.bank.exceptions.BankException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,8 +52,8 @@ public class CustomerUI {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 int currentCustomerIndex = bank.getCustomerList().indexOf(curCustomer);
-                if (currentCustomerIndex < bank.getCustomerList().size() -1) {
-                    Customer nextCustomer = bank.getCustomerList().get(currentCustomerIndex+1);
+                if (currentCustomerIndex < bank.getCustomerList().size() - 1) {
+                    Customer nextCustomer = bank.getCustomerList().get(currentCustomerIndex + 1);
                     setCustomer(nextCustomer);
                 }
             }
@@ -60,11 +61,36 @@ public class CustomerUI {
         prevButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                int currentCustomerIndex = bank.getCustomerList().indexOf(curCustomer);
+                if (currentCustomerIndex > 0) {
+                    Customer nextCustomer = bank.getCustomerList().get(currentCustomerIndex - 1);
+                    setCustomer(nextCustomer);
+                }
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    Integer custId = Integer.valueOf(idTextField.getText());
+                    Customer customer = bank.findCustomerByID(custId);
+                    customer.setFirstName(firstNameTextField.getText());
+                    customer.setLastName(lastNameTextField.getText());
+                    customer.setEmail(emailTextField.getText());
+                } catch (BankException be) {
+                    JOptionPane.showMessageDialog(null, be.getMessage());
+                }
             }
         });
 
     }
+
+    private void showAccounts() {
+        accountsTableDataModel = new AccountsTableDataModel(bank.);
+
+
+    }
+
 
     public void setCustomer(Customer customer) {
         curCustomer = customer;
