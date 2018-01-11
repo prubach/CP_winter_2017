@@ -17,7 +17,7 @@ public class Bank {
 
     private Integer lastAccountID = 0;
 
-    public List<Account> findAccountsByCustomer(Customer cust) throws BankException {
+    public List<Account> findAccountsByCustomer(Customer cust) {
         List<Account> customerAccounts = new ArrayList<>();
         for (Account account: accountList) {
             if (account.getCustomer().equals(cust)) customerAccounts.add(account);

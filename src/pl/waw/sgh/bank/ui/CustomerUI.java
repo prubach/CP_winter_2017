@@ -46,6 +46,7 @@ public class CustomerUI {
                 bank.createDebitAccount(newCustomer);
                 idTextField.setText(curCustomer.getCustomerID().toString());
                 System.out.println(bank);
+                showAccounts();
             }
         });
         nextButton.addActionListener(new ActionListener() {
@@ -82,13 +83,11 @@ public class CustomerUI {
                 }
             }
         });
-
     }
 
     private void showAccounts() {
-        accountsTableDataModel = new AccountsTableDataModel(bank.);
-
-
+        accountsTableDataModel = new AccountsTableDataModel(bank.findAccountsByCustomer(curCustomer));
+        accountTable = new JTable(accountsTableDataModel);
     }
 
 
@@ -98,6 +97,7 @@ public class CustomerUI {
         firstNameTextField.setText(customer.getFirstName());
         lastNameTextField.setText(customer.getLastName());
         emailTextField.setText(customer.getEmail());
+        showAccounts();
     }
 
     public static void main(String[] args) {

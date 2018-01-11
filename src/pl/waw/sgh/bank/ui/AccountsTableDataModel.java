@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by prubac on 5/24/2017.
@@ -15,7 +16,17 @@ public class AccountsTableDataModel extends DefaultTableModel {
 
     static String[] cols = {"ID", "Type", "Currency", "Balance"};
 
-    List<Account> dataList = new ArrayList<>();
+    //List<Account> dataList = new ArrayList<>();
+
+
+    private Vector getVectorFromAccount(Account acc) {
+        Vector vector = new Vector();
+        vector.add(acc.getAccountID());
+        vector.add(acc.getClass());
+        vector.add(acc.getCurrency());
+        vector.add(acc.getBalance());
+        return vector;
+    }
 
     public AccountsTableDataModel(List<Account> accountList) {
         super(cols, 0);
@@ -24,25 +35,28 @@ public class AccountsTableDataModel extends DefaultTableModel {
 
     public void addRows(List<Account> accountList) {
         for (Account acc : accountList) {
-            addRow(acc);
+            addRow(getVectorFromAccount(acc));
         }
     }
 
-    public void addRow(Account acc) {
-        dataList.add(acc);
-        fireTableDataChanged();
-    }
+   /* public void addRow(Account acc) {
 
-    public void removeAllRows() {
+        addRow();
+        dataList.add(acc);
+        //dataVector.add
+        fireTableDataChanged();
+    }*/
+
+   /* public void removeAllRows() {
         dataList.clear();
         fireTableDataChanged();
-    }
+    }*/
 
-    public void removeRow(int rowIndex) {
+   /* public void removeRow(int rowIndex) {
         dataList.remove(rowIndex);
         fireTableDataChanged();
     }
-
+*/
     @Override
     public Class getColumnClass(int colIndex) {
         switch (colIndex) {
@@ -59,7 +73,7 @@ public class AccountsTableDataModel extends DefaultTableModel {
         }
     }
 
-    @Override
+    /*@Override
     public Object getValueAt(int rowInd, int colInd) {
         Account acc = (Account) dataList.get(rowInd);
         switch (colInd) {
@@ -75,9 +89,9 @@ public class AccountsTableDataModel extends DefaultTableModel {
             default:
                 return new Object();
         }
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void setValueAt(Object newVal, int row, int column) {
         Account account = (Account) dataList.get(row);
         switch (column) {
@@ -92,5 +106,5 @@ public class AccountsTableDataModel extends DefaultTableModel {
                 account.setBalance((BigDecimal) newVal);
         }
 
-    }
+    }*/
 }
