@@ -19,8 +19,10 @@ public class OurThreads {
         OurThreads ourThreads = new OurThreads();
 
         MyThread[] myThreads = new MyThread[NUM_THREADS];
+        Thread prevThread = null;
         for (int i=0;i<NUM_THREADS;i++) {
-            myThreads[i] = new MyThread("T_"+i, ourThreads);
+            myThreads[i] = new MyThread("T_"+i, ourThreads, prevThread);
+            prevThread = myThreads[i];
         }
 
         for (int i=0;i<NUM_THREADS;i++) {
