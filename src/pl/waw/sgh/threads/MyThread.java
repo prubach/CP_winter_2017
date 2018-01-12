@@ -22,7 +22,7 @@ public class MyThread extends Thread {
     @Override
     public void run() {
         try {
-            if (nextThread!=null) nextThread.join();
+            //if (nextThread!=null) nextThread.join();
             while (iterator < 10) {
                 iterator++;
                 System.out.println(name + " it=" + iterator);
