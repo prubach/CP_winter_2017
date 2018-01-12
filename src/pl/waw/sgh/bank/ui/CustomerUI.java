@@ -21,7 +21,7 @@ public class CustomerUI {
     private JButton saveButton;
     private JButton deleteButton;
     private JButton newButton;
-    private JTable accountTable = new JTable();
+    private JTable accountTable;
     private JPanel myMainPanel;
     private JPanel accountPanel;
     private JTextField emailTextField;
@@ -45,8 +45,8 @@ public class CustomerUI {
                 curCustomer = newCustomer;
                 bank.createDebitAccount(newCustomer);
                 idTextField.setText(curCustomer.getCustomerID().toString());
-                System.out.println(bank);
                 showAccounts();
+                System.out.println(bank);
             }
         });
         nextButton.addActionListener(new ActionListener() {
@@ -86,8 +86,8 @@ public class CustomerUI {
     }
 
     private void showAccounts() {
-        accountsTableDataModel = new AccountsTableDataModel(bank.findAccountsByCustomer(curCustomer));
-        accountTable = new JTable(accountsTableDataModel);
+        accountsTableDataModel.removeAllRows();
+        accountsTableDataModel.addRows(bank.findAccountsByCustomer(curCustomer));
     }
 
 
@@ -114,6 +114,8 @@ public class CustomerUI {
     }
 
     private void createUIComponents() {
+        accountsTableDataModel = new AccountsTableDataModel(bank.getAccountList());
+        accountTable = new JTable(accountsTableDataModel);
     }
 
     /**
