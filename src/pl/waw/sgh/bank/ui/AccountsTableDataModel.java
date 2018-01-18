@@ -14,6 +14,10 @@ public class AccountsTableDataModel extends DefaultTableModel {
 
     private List<Account> accountList = new ArrayList<>();
 
+    public Account getAccountByRow(int i) {
+        return accountList.get(i);
+    }
+
     private Vector getVectorFromAccount(Account acc) {
         Vector vector = new Vector();
         vector.add(acc.getAccountID());
