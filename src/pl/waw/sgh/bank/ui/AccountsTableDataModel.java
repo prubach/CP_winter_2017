@@ -52,6 +52,14 @@ public class AccountsTableDataModel extends DefaultTableModel {
         fireTableDataChanged();
     }
 
+    // Disable editing data in a table
+/*
+    @Override
+    public boolean isCellEditable(int i, int i1) {
+        return false;
+    }
+*/
+
     @Override
     public Class getColumnClass(int colIndex) {
         switch (colIndex) {
